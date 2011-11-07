@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  min_age: 1
+  max_age: 1
+  service: MyString
+
+two:
+  name: MyString
+  min_age: 1
+  max_age: 1
+  service: MyString

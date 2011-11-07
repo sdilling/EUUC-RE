@@ -1,4 +1,14 @@
 EUUCRE::Application.routes.draw do
+  get "families/index"
+
+  get "families/show"
+
+  get "families/edit"
+
+  get "families/delete"
+
+  get "home/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -12,6 +22,14 @@ EUUCRE::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+
+  resources :families do
+    resources :people
+  end
+  resources :groups
+  resources :teachers
+  resources :assistants
+  resources :students
 
   # Sample resource route with options:
   #   resources :products do
@@ -48,7 +66,7 @@ EUUCRE::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 
