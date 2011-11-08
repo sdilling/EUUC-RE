@@ -1,4 +1,5 @@
 class FamiliesController < ApplicationController
+  http_basic_authenticate_with :name=> "sarahd", :password => "euucdb", :except => :index
 
   def index
     @families = Family.order("name ASC")

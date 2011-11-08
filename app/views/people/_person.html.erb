@@ -1,0 +1,12 @@
+<%= person.first_name %> <%= person.last_name %><br />
+<%= person.address %><br />
+<%= person.city %>, <%= person.state %> <%= person.zip_code %><br />
+H: <%= person.home_phone %> C: <%= person.cell_phone %> W: <%= person.work_phone %> E: <%= person.email %> Preferred <%= person.preferred_contact_method %><br />
+Gender Identification: <%= person.gender_identification %> Birthdate: <%= person.birthdate %> Active: <%= person.active %>
+Public note: <%= person.public_note %>
+Admin note: <%= person.admin_note %>
+Family Role: <%= person.family_role %>
+
+<%= link_to 'Destroy Person', [person.family, person], 
+    :confirm => 'Are you sure?',
+    :method => :delete %>
