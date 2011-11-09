@@ -1,5 +1,8 @@
 <%= form_for([@family, @person]) do |f| %>
   <div class="field">
+    <%= f.label :family_role %>: <%= radio_button("person", "family_role", "Adult 1") %> Adult 1 <%= radio_button("person", "family_role", "Adult 2") %> Adult 2 <%= radio_button("person", "family_role", "Child") %> Child
+  </div>
+  <div class="field">
     <%= f.label :first_name %>: <%= f.text_field :first_name %>
   </div>
   <div class="field">
@@ -32,23 +35,20 @@
   <div class="field">
     <%= f.label :preferred_contact_method %>: <%= radio_button("person", "preferred_contact_method", "home") %> Home  <%= radio_button("person", "preferred_contact_method", "work") %> Work  <%= radio_button("person", "preferred_contact_method", "cell") %> Cell  <%= radio_button("person", "preferred_contact_method", "email") %> Email
   </div>
-  <div class="field">
+  <div class="field child">
     <%= f.label :gender_identification %>: <%= radio_button("person", "gender_identification", "M") %> M  <%= radio_button("person", "gender_identification", "F") %> F  <%= radio_button("person", "gender_identification", "O") %> O
   </div>
-  <div class="field">
+  <div class="field child">
     <%= f.label :birthdate %>: <%= date_select :person, :birthdate, :start_year => 1930 %>
   </div>
-  <div class="field">
+  <div class="field child">
     <%= f.label :active %>: <%= check_box("person", "active") %>
   </div>
   <div class="field">
     <%= f.label :public_note %>: <%= f.text_area :public_note %>
   </div>
-  <div class="field">
+  <div class="field admin">
     <%= f.label :admin_note %>: <%= f.text_area :admin_note %>
-  </div>
-  <div class="field">
-    <%= f.label :family_role %>: <%= radio_button("person", "family_role", "Adult 1") %> Adult 1 <%= radio_button("person", "family_role", "Adult 2") %> Adult 2 <%= radio_button("person", "family_role", "Child") %> Child
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -8,8 +8,15 @@ class PeopleController < ApplicationController
   end
 
   def create
-    @person = @family.people.create(params[:person])
-    redirect_to family_path(@family)
+    begin
+      @person = @family.people.create!(params[:person])
+    rescue ActiveRecord::RecordInvalid
+      flash[:alert] = "Didn't create the person"
+      redirect_to family_path(@family)
+    else
+      flash[:notice] = "Person created"
+      redirect_to family_path(@family)
+    end
   end
 
   def destroy
