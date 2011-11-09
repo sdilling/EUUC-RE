@@ -7,6 +7,8 @@ Public note: <%= person.public_note %>
 Admin note: <%= person.admin_note %>
 Family Role: <%= person.family_role %>
 
-<%= link_to 'Destroy Person', [person.family, person], 
+<%= link_to 'Edit Person', edit_family_person_path(@family, @person) %>
+
+<%= link_to 'Destroy Person', [person.family, person],
     :confirm => 'Are you sure?',
     :method => :delete %>
