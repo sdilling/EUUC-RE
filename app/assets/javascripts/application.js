@@ -7,3 +7,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function() {
+  $(':radio.Adult').click(function() {
+      $('.show').addClass('Adult');
+      $('.show').removeClass('Child');
+  });
+  $(':radio.Child').click(function() {
+      $('.show').addClass('Child');
+      $('.show').removeClass('Adult');
+  });
+});

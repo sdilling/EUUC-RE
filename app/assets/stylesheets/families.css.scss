@@ -1,3 +1,19 @@
 // Place all the styles related to the Families controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.child_show, .admin_show, .adult_show {
+    display: none;
+}
+
+.Child {
+    .child_show {
+        display: block;
+    }
+}
+
+.Adult {
+    .adult_show {
+        display: block;
+    }
+}

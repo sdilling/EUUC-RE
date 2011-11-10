@@ -6,29 +6,38 @@
   <b>Name:</b>
   <%= @family.name %> 
 </p>
+<%= link_to 'New Person', new_family_person_path(@family) %>  |
+<%= link_to 'Edit Family', edit_family_path(@family) %> |
+<%= link_to 'Back to All Families', families_path %>
+<br />
+<br />
 
 <h2>People</h2>
 <% @family.people.each do |person| %>
+<div class="<%= person.family_role%>">
   <%= person.first_name %> <%= person.last_name %><br />
-  <%= person.address %><br />
-  <%= person.city %>, <%= person.state %> <%= person.zip_code %><br />
-  H: <%= person.home_phone %> C: <%= person.cell_phone %> W: <%= person.work_phone %> E: <%= person.email %> Preferred: <%= person.preferred_contact_method %><br />
-  Gender Identification: <%= person.gender_identification %> <br />
-  Birthdate: <%= person.birthdate %> <br />
-  Active: <%= person.active %> <br />
+  <span class="adult_show">
+    <%= person.address %><br />
+    <%= person.city %>, <%= person.state %> <%= person.zip_code %><br />
+    H: <%= person.home_phone %> C: <%= person.cell_phone %>
+    W: <%= person.work_phone %> E: <%= person.email %>
+    Preferred: <%= person.preferred_contact_method %><br />
+  </span>
+  <span class="child_show">
+    Gender Identification: <%= person.gender_identification %> <br />
+    Birthdate: <%= person.birthdate %> <br />
+    Active: <%= person.active %> <br />
+  </span>
   Public note: <%= person.public_note %><br />
-  Admin note: <%= person.admin_note %> <br />
+  <span class="admin_show">
+    Admin note: <%= person.admin_note %> <br />
+  </span>
   Family Role: <%= person.family_role %> <br />
-
+</div>
   <%= link_to 'Edit Person', edit_family_person_path(@family, person) %>
 
   <%= link_to 'Destroy Person', [person.family, person],
       :confirm => 'Are you sure?',
-      :method => :delete %>
+      :method => :delete %>   <br/><br/>
 <% end %>
 
-<br />
-<br />
-<%= link_to 'New Person', new_family_person_path(@family) %>  |
-<%= link_to 'Edit', edit_family_path(@family) %> |
-<%= link_to 'Back', families_path %>

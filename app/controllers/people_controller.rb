@@ -12,7 +12,7 @@ class PeopleController < ApplicationController
       @person = @family.people.create!(params[:person])
     rescue ActiveRecord::RecordInvalid
       flash[:alert] = "Didn't create the person"
-      redirect_to family_path(@family)
+      redirect_to new_family_person_path(@family)
     else
       flash[:notice] = "Person created"
       redirect_to family_path(@family)
@@ -44,9 +44,11 @@ class PeopleController < ApplicationController
 
   private
     def find_person
-      @person = @family.people.find(params[:id])
+      begin
+        @person = @family.people.find(params[:id])
       rescue ActiveRecord::RecordNotFound
-      flash[:alert] = "Didn't find the person"
+        flash[:alert] = "Didn't find the person"
+      end
       redirect_to family_path(@family)
     end
 
